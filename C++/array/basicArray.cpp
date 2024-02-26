@@ -81,14 +81,28 @@ int getLargestEleIndex(int arr[], int n)
     return maxi;
 }
 
+// works only for +ve num.
+int secondLargest(int arr[], int n)
+{
+    int result = -1;
+    int large = getLargestEleIndex(arr, n);
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i] != arr[large])
+            if (result == -1 || arr[i] > arr[result])
+                result = i;
+    }
+    return result;
+}
+
 int main()
 {
-    int arr[] = {1, 2, 3, 4, 5, 3, 4, 4, 3, 5, 4, 4, 4, 3};
+    int arr[] = {1, 2, 3, 4, 5, 6, 4, 4, 3, 5, 4, 4, 4, 3};
     int n = sizeof(arr) / sizeof(arr[0]);
 
     // printArray(arr, n);
 
-    int result = getLargestEleIndex(arr, n);
+    int result = secondLargest(arr, n);
     cout << result;
 
     // printArray(arr, n);

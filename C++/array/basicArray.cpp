@@ -133,16 +133,44 @@ int removeSortedDuplicates(int arr[], int n)
     return firstPointer + 1;
 }
 
+// move all zeros to the end (efficient) -- two pointer
+void moveAllZeros(int arr[], int n)
+{
+    int i, j;
+    i = j = 0;
+    while (j < n)
+    {
+        if (arr[j] != 0)
+        {
+            // arr[i] = arr[j];
+            // if (i != j)
+            // {
+            //     arr[j] = 0;
+            // }
+            // i++;
+            // j++;
+
+            swap(arr[i], arr[j]);
+            i++;
+            j++;
+        }
+        else
+        {
+            j++;
+        }
+    }
+}
 int main()
 {
     // int arr[] = {1, 2, 3, 4, 5, 6, 4, 4, 3, 5, 4, 4, 4, 3};
-    int arr[] = {1, 1, 1, 1, 5, 6, 7, 7, 7, 8};
+    int arr[] = {1, 0, 0, 0, 5, 0, 7, 0, 7, 8};
+
     int n = sizeof(arr) / sizeof(arr[0]);
 
     // printArray(arr, n);
-
-    int result = removeSortedDuplicates(arr, n);
-    cout << result << endl;
+    moveAllZeros(arr, n);
+    // int result = removeSortedDuplicates(arr, n);
+    // cout << result << endl;
 
     printArray(arr, n);
 

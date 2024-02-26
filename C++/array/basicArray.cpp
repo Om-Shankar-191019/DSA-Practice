@@ -55,6 +55,19 @@ int deleteAllOccurances(int arr[], int n, int key)
     return p;
 }
 
+int largest(int arr[], int n)
+{
+    int maxi = arr[0];
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i] > maxi)
+        {
+            maxi = arr[i];
+        }
+    }
+    return maxi;
+}
+
 int main()
 {
     int arr[] = {1, 2, 3, 4, 5, 3, 4, 4, 3, 5, 4, 4, 4, 3};

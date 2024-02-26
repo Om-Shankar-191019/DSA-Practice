@@ -28,6 +28,33 @@ int deleteOne(int arr[], int n, int key)
     return n;
 }
 
+int deleteAllOccurances(int arr[], int n, int key)
+{
+    int p = -1, q;
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i] == key)
+        {
+            p = i;
+            break;
+        }
+    }
+    if (p == -1)
+    {
+        return n;
+    }
+
+    q = p + 1;
+    for (; q < n; q++)
+    {
+        if (arr[q] != key)
+        {
+            arr[p++] = arr[q];
+        }
+    }
+    return p;
+}
+
 int main()
 {
     int arr[] = {1, 2, 3, 4, 5, 3, 4, 4, 3, 5, 4, 4, 4, 3};

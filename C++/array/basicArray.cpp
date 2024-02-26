@@ -68,14 +68,28 @@ int largest(int arr[], int n)
     return maxi;
 }
 
+int getLargestEleIndex(int arr[], int n)
+{
+    int maxi = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i] > arr[maxi])
+        {
+            maxi = i;
+        }
+    }
+    return maxi;
+}
+
 int main()
 {
     int arr[] = {1, 2, 3, 4, 5, 3, 4, 4, 3, 5, 4, 4, 4, 3};
-
     int n = sizeof(arr) / sizeof(arr[0]);
-    // cout << "Before: " << n << " : ";
-    printArray(arr, n);
-    cout << endl;
+
+    // printArray(arr, n);
+
+    int result = getLargestEleIndex(arr, n);
+    cout << result;
 
     // printArray(arr, n);
 

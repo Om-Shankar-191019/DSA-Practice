@@ -112,17 +112,39 @@ int secondLargest2(int arr[], int n)
     return result;
 }
 
+// remove duplicates from sorted array (efficient)
+int removeSortedDuplicates(int arr[], int n)
+{
+    int firstPointer = 0;
+    int secondPointer = 1;
+    while (secondPointer < n)
+    {
+        if (arr[firstPointer] == arr[secondPointer])
+        {
+            secondPointer++;
+        }
+        else
+        {
+            firstPointer++;
+            arr[firstPointer] = arr[secondPointer];
+            secondPointer++;
+        }
+    }
+    return firstPointer + 1;
+}
+
 int main()
 {
-    int arr[] = {1, 2, 3, 4, 5, 6, 4, 4, 3, 5, 4, 4, 4, 3};
+    // int arr[] = {1, 2, 3, 4, 5, 6, 4, 4, 3, 5, 4, 4, 4, 3};
+    int arr[] = {1, 1, 1, 1, 5, 6, 7, 7, 7, 8};
     int n = sizeof(arr) / sizeof(arr[0]);
 
     // printArray(arr, n);
 
-    int result = secondLargest2(arr, n);
-    cout << result;
+    int result = removeSortedDuplicates(arr, n);
+    cout << result << endl;
 
-    // printArray(arr, n);
+    printArray(arr, n);
 
     return 0;
 }

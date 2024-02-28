@@ -160,15 +160,34 @@ void moveAllZeros(int arr[], int n)
         }
     }
 }
+
+void freqInSortedArray(int arr[], int n)
+{
+    int currCompare = arr[0];
+    int count = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i] == currCompare)
+            count++;
+        else
+        {
+            cout << arr[i - 1] << " : " << count << endl;
+            count = 1;
+            currCompare = arr[i];
+        }
+    }
+    cout << arr[n - 1] << " : " << count << endl;
+}
+
 int main()
 {
     // int arr[] = {1, 2, 3, 4, 5, 6, 4, 4, 3, 5, 4, 4, 4, 3};
-    int arr[] = {1, 0, 0, 0, 5, 0, 7, 0, 7, 8};
+    int arr[] = {0, 0, 0, 0, 5, 6, 7, 7, 7, 8, 8};
 
     int n = sizeof(arr) / sizeof(arr[0]);
 
     // printArray(arr, n);
-    moveAllZeros(arr, n);
+    freqInSortedArray(arr, n);
     // int result = removeSortedDuplicates(arr, n);
     // cout << result << endl;
 

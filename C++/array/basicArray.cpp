@@ -179,17 +179,47 @@ void freqInSortedArray(int arr[], int n)
     cout << arr[n - 1] << " : " << count << endl;
 }
 
+int tappingRainWaterNaive(int arr[], int n)
+{
+    int result = 0;
+    int gl = arr[0];
+    int gr = arr[n - 1];
+    for (int i = 0; i < n - 1; i++)
+    {
+        if (arr[i] > gl)
+        {
+            gl = arr[i];
+            continue;
+        }
+
+        for (int j = i + 1; j < n; j++)
+        {
+            if (arr[j] > gr)
+            {
+                gr = arr[j];
+            }
+        }
+
+        if (arr[i] > gr)
+        {
+            continue;
+        }
+        result += min(gl, gr) - arr[i];
+    }
+
+    return result;
+}
 int main()
 {
     // int arr[] = {1, 2, 3, 4, 5, 6, 4, 4, 3, 5, 4, 4, 4, 3};
-    int arr[] = {0, 0, 0, 0, 5, 6, 7, 7, 7, 8, 8};
+    int arr[] = {3, 2, 3, 4, 5};
 
     int n = sizeof(arr) / sizeof(arr[0]);
 
     // printArray(arr, n);
-    freqInSortedArray(arr, n);
-    // int result = removeSortedDuplicates(arr, n);
-    // cout << result << endl;
+
+    int result = tappingRainWaterNaive(arr, n);
+    cout << result << endl;
 
     printArray(arr, n);
 

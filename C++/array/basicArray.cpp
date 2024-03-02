@@ -209,16 +209,35 @@ int tappingRainWaterNaive(int arr[], int n)
 
     return result;
 }
+
+int maximumConsecutiveOnes(int arr[], int n)
+{
+    int result = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i] == 1)
+        {
+            int count = 0;
+            while (arr[i] == 1)
+            {
+                count++;
+                i++;
+            }
+            result = max(result, count);
+        }
+    }
+    return result;
+}
 int main()
 {
     // int arr[] = {1, 2, 3, 4, 5, 6, 4, 4, 3, 5, 4, 4, 4, 3};
-    int arr[] = {3, 2, 3, 4, 5};
+    int arr[] = {1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1};
 
     int n = sizeof(arr) / sizeof(arr[0]);
 
     // printArray(arr, n);
 
-    int result = tappingRainWaterNaive(arr, n);
+    int result = maximumConsecutiveOnes(arr, n);
     cout << result << endl;
 
     printArray(arr, n);

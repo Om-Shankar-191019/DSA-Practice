@@ -218,7 +218,7 @@ int maximumConsecutiveOnes(int arr[], int n)
         if (arr[i] == 1)
         {
             int count = 0;
-            while (arr[i] == 1)
+            while (i < n && arr[i] == 1)
             {
                 count++;
                 i++;

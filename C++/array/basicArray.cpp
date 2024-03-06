@@ -324,9 +324,30 @@ bool IsequilibriumPoint(int arr[], int n)
     }
     return false;
 }
+
+bool IsEquilibriumPoint2(int arr[], int n)
+{
+    int totalSum = arr[0];
+    for (int i = 1; i < n; i++)
+    {
+        totalSum += arr[i];
+    }
+
+    int leftSum = 0;
+    for (int i = 0; i < n; i++)
+    {
+        int rightSum = totalSum - arr[i] - leftSum;
+        if (leftSum == rightSum)
+            return true;
+        leftSum += arr[i];
+    }
+
+    return false;
+}
 int main()
 {
-    int arr[] = {2, -2, 4};
+    int arr[] = {3, 4, 8, -9, 20, 6};
+
     // int arr[] = {1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1};
 
     int n = sizeof(arr) / sizeof(arr[0]);
@@ -334,7 +355,7 @@ int main()
     // printArray(arr, n);
 
     // minimumConsecutiveFlips(arr, n);
-    int result = IsequilibriumPoint(arr, n);
+    int result = IsEquilibriumPoint2(arr, n);
     cout << result << endl;
 
     printArray(arr, n);

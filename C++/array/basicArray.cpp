@@ -246,17 +246,66 @@ int IsSubArrayOfGivenSum(int arr[], int n, int sum)
     return false;
 }
 
+// Q. minimum consecutive flips required to make all element same in array.
+// array contains only zero and one. Also print from where to where flip required.
+void minimumConsecutiveFlips(int arr[], int n)
+{
+    int zeroGroupCount = 0;
+    int oneGroupCount = 0;
+    if (arr[0] == 0)
+        zeroGroupCount++;
+    else
+        oneGroupCount++;
+
+    for (int i = 1; i < n; i++)
+    {
+        while (i < n && arr[i] == arr[i - 1])
+        {
+            i++;
+        }
+        if (arr[i] == 0)
+            zeroGroupCount++;
+        else
+            oneGroupCount++;
+    }
+
+    int target;
+    if (zeroGroupCount < oneGroupCount)
+    {
+        target = 0;
+    }
+    else
+    {
+        target = 1;
+    }
+
+    for (int i = 0; i < n; i++)
+    {
+        int start;
+        int end;
+        if (arr[i] == target)
+        {
+            start = i;
+            while (i < n && arr[i] == target)
+                i++;
+            end = i - 1;
+
+            cout << "From " << start << " to " << end << endl;
+        }
+    }
+}
 int main()
 {
-    int arr[] = {1, 4, 20, 3, 10, 5};
-    // int arr[] = {1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1};
+    // int arr[] = {1, 4, 20, 3, 10, 5};
+    int arr[] = {1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1};
 
     int n = sizeof(arr) / sizeof(arr[0]);
 
     // printArray(arr, n);
 
-    int result = IsSubArrayOfGivenSum(arr, n, 33);
-    cout << result << endl;
+    minimumConsecutiveFlips(arr, n);
+    // int result = minimumConsecutiveFlips(arr, n);
+    // cout << result << endl;
 
     printArray(arr, n);
 

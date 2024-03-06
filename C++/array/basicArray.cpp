@@ -294,18 +294,48 @@ void minimumConsecutiveFlips(int arr[], int n)
         }
     }
 }
+
+bool IsequilibriumPoint(int arr[], int n)
+{
+    if (n == 1)
+        return true;
+    int prefixSumLR[n];
+    int prefixSumRL[n];
+
+    prefixSumLR[0] = arr[0];
+    for (int i = 1; i < n; i++)
+        prefixSumLR[i] = prefixSumLR[i - 1] + arr[i];
+
+    prefixSumRL[n - 1] = arr[n - 1];
+    for (int i = n - 2; i >= 0; i--)
+        prefixSumRL[i] = prefixSumRL[i + 1] + arr[i];
+
+    for (int i = 0; i < n; i++)
+    {
+        if (i == 0 && prefixSumRL[i + 1] == 0)
+            return true;
+        if (i == n - 1 && prefixSumLR[i - 1] == 0)
+            return true;
+        else
+        {
+            if (prefixSumLR[i - 1] == prefixSumRL[i + 1])
+                return true;
+        }
+    }
+    return false;
+}
 int main()
 {
-    // int arr[] = {1, 4, 20, 3, 10, 5};
-    int arr[] = {1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1};
+    int arr[] = {2, -2, 4};
+    // int arr[] = {1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1};
 
     int n = sizeof(arr) / sizeof(arr[0]);
 
     // printArray(arr, n);
 
-    minimumConsecutiveFlips(arr, n);
-    // int result = minimumConsecutiveFlips(arr, n);
-    // cout << result << endl;
+    // minimumConsecutiveFlips(arr, n);
+    int result = IsequilibriumPoint(arr, n);
+    cout << result << endl;
 
     printArray(arr, n);
 

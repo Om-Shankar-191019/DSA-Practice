@@ -5,6 +5,10 @@ function heavy(x) {
 
 // heavy(4);
 
+function memoizationPattern(fx) {
+  return function (x) {};
+}
+
 function memoizer(fx) {
   let map = new Map();
   return function (x) {

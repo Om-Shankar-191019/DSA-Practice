@@ -228,16 +228,34 @@ int maximumConsecutiveOnes(int arr[], int n)
     }
     return result;
 }
+
+int IsSubArrayOfGivenSum(int arr[], int n, int sum)
+{
+    int k = 0;
+    int curr_sum = arr[0];
+    int i = 1;
+    while (i < n)
+    {
+        if (curr_sum < sum)
+            curr_sum += arr[i++];
+        else if (curr_sum > sum)
+            curr_sum -= arr[k++];
+        else
+            return true;
+    }
+    return false;
+}
+
 int main()
 {
-    // int arr[] = {1, 2, 3, 4, 5, 6, 4, 4, 3, 5, 4, 4, 4, 3};
-    int arr[] = {1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1};
+    int arr[] = {1, 4, 20, 3, 10, 5};
+    // int arr[] = {1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1};
 
     int n = sizeof(arr) / sizeof(arr[0]);
 
     // printArray(arr, n);
 
-    int result = maximumConsecutiveOnes(arr, n);
+    int result = IsSubArrayOfGivenSum(arr, n, 33);
     cout << result << endl;
 
     printArray(arr, n);

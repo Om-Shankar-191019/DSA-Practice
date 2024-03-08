@@ -28,30 +28,119 @@
 // console.log(memoizedHeavy(5));
 // -------------------------------------------------------------
 
-function sum(a) {
-  return a + 10;
-}
+// function sum(a) {
+//   return a + 10;
+// }
 
-function memoization(fx) {
-  let map = new Map();
+// function memoization(fx) {
+//   let map = new Map();
 
-  return function (a) {
-    console.log(map);
-    if (map.has(a)) return map.get(a);
-    else {
-      let result = fx(a);
-      map.set(a, result);
-      console.log("else");
-      return result;
-    }
-  };
-}
+//   return function (a) {
+//     console.log(map);
+//     if (map.has(a)) return map.get(a);
+//     else {
+//       let result = fx(a);
+//       map.set(a, result);
+//       console.log("else");
+//       return result;
+//     }
+//   };
+// }
 
-const memoizedSum = memoization(sum);
-console.log(memoizedSum(12));
-console.log(memoizedSum(13));
-console.log(memoizedSum(14));
-console.log(memoizedSum(14));
-console.log(memoizedSum(13));
-console.log(memoizedSum(14));
-console.log(memoizedSum(25));
+// const memoizedSum = memoization(sum);
+// console.log(memoizedSum(12));
+// console.log(memoizedSum(13));
+// console.log(memoizedSum(14));
+// console.log(memoizedSum(14));
+// console.log(memoizedSum(13));
+// console.log(memoizedSum(14));
+// console.log(memoizedSum(25));
+// ----------------------------------------------
+
+// function add(x) {
+//   return x + 10;
+// }
+
+// function memo(fx) {
+//   let cache = {};
+//   return function (x) {
+//     if (cache[x]) {
+//       console.log("result from cache: ");
+//       return cache[x];
+//     } else {
+//       let result = fx(x);
+//       cache[x] = result;
+//       console.log("result from calculation: ");
+//       return result;
+//     }
+//   };
+// }
+
+// let memoizedAdd = memo(add);
+// console.log(memoizedAdd(11));
+// console.log(memoizedAdd(22));
+// console.log(memoizedAdd(30));
+// console.log(memoizedAdd(11));
+// console.log(memoizedAdd(30));
+// ---------------------------------------------------------------
+
+// for multiple arguments ------------
+
+// function add(...data) {
+//   return data.reduce((total, curr) => total + curr);
+// }
+
+// function memo(fx) {
+//   let cache = {};
+//   return function (...args) {
+//     let key = JSON.stringify(args);
+//     if (cache[key]) {
+//       console.log("result from cache: ");
+//       return cache[key];
+//     } else {
+//       let result = fx(...args);
+//       cache[key] = result;
+//       console.log("result from calculation");
+//       return result;
+//     }
+//   };
+// }
+
+// let memoizedAdd = memo(add);
+
+// console.log(memoizedAdd(1, 2, 3));
+// console.log(memoizedAdd(1, 2, 30, 3));
+// console.log(memoizedAdd(1, 2, 30, 3));
+// console.log(memoizedAdd(1, 2, 3));
+// console.log(memoizedAdd(1, 2, 3));
+
+// ========================================================
+
+// for two arguments
+
+// function add(a, b) {
+//   return a + b;
+// }
+
+// function memo(fx) {
+//   let cache = {};
+//   return function (a, b) {
+//     let key = JSON.stringify(arguments);
+//     if (cache[key]) {
+//       console.log("result from cache: ");
+//       return cache[key];
+//     } else {
+//       let result = fx(a, b);
+//       cache[key] = result;
+//       console.log("result from calculation");
+//       return result;
+//     }
+//   };
+// }
+
+// let memoizedAdd = memo(add);
+
+// console.log(memoizedAdd(1, 2));
+// console.log(memoizedAdd(1, 4));
+
+// real world use case -- fibonacci series using recursion

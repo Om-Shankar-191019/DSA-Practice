@@ -10,7 +10,6 @@ function counter() {
 let increase = counter();
 let d = counter();
 
-
 increase();
 increase();
 increase();

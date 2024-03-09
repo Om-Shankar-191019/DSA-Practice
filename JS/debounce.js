@@ -11,7 +11,10 @@ function debounce(fx, debounceTime) {
     if (id) {
       clearTimeout(id);
     }
-    id = setTimeout(fx, debounceTime);
+    id = setTimeout(() => {
+      fx();
+      id = null;
+    }, debounceTime);
   };
 }
 

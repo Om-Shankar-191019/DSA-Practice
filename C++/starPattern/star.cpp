@@ -71,9 +71,31 @@ void halfDimondReversed(int r, int c)
     }
 }
 
+// *********
+//  *******
+//   *****
+//    ***
+//     *
+void halfDimondBottom(int r, int c)
+{
+    int mid = (c + 1) / 2;
+    for (int i = 1; i <= r; i++)
+    {
+        for (int j = 1; j <= c; j++)
+        {
+            // if (j >= i && j <= c - (i - 1))
+            if (j >= i && j <= (c + 1) - i)
+                cout << "*";
+            else
+                cout << " ";
+        }
+        cout << endl;
+    }
+}
+
 int main()
 {
 
-    halfDimondReversed(5, 9);
+    halfDimondBottom(5, 9);
     return 0;
 }

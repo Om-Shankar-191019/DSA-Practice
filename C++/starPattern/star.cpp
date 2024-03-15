@@ -93,9 +93,27 @@ void halfDimondBottom(int r, int c)
     }
 }
 
+void fullDimond(int r, int c)
+{
+    int mid = (c + 1) / 2;
+    int k = 0;
+    for (int i = 1; i <= r; i++)
+    {
+        i <= mid ? k++ : k--;
+        for (int j = 1; j <= c; j++)
+        {
+            if (j >= (mid + 1) - k && j <= (mid - 1) + k)
+                cout << "*";
+            else
+                cout << " ";
+        }
+        cout << endl;
+    }
+}
+
 int main()
 {
 
-    halfDimondBottom(5, 9);
+    fullDimond(5, 5);
     return 0;
 }

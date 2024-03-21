@@ -2,6 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// find x and count to its left and right;
 int countOccurances(int arr[], int n, int x)
 {
     int l = 0, h = n - 1;
@@ -51,13 +52,41 @@ int countOccurances(int arr[], int n, int x)
 
     return count;
 }
+
+void peakElements(int arr[], int n)
+{
+    if (n == 1)
+    {
+        cout << arr[0] << " ";
+        return;
+    }
+    for (int i = 0; i < n; i++)
+    {
+        if (i == 0)
+        {
+            if (arr[i] >= arr[i + 1])
+                cout << arr[i] << " ";
+        }
+        else if (i == n - 1)
+        {
+            if (arr[i] >= arr[i - 1])
+                cout << arr[i] << " ";
+        }
+        else
+        {
+            if (arr[i] >= arr[i + 1] && arr[i] >= arr[i - 1])
+                cout << arr[i] << " ";
+        }
+    }
+}
 int main()
 {
 
-    int arr[] = {2, 3, 6, 6, 6, 6, 6, 6, 6, 7, 9};
+    int arr[] = {12, 67, 9};
     int n = sizeof(arr) / sizeof(arr[0]);
 
-    int result = countOccurances(arr, n, 1);
-    cout << result << endl;
+    peakElements(arr, n);
+    // int result = countOccurances(arr, n, 1);
+    // cout << result << endl;
     return 0;
 }

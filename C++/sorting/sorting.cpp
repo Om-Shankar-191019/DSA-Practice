@@ -31,11 +31,27 @@ void bubbleSort(int arr[], int n)
     }
 }
 
+void insertionSort(int arr[], int n)
+{
+
+    for (int i = 1; i < n; i++)
+    {
+        int j = i - 1;
+        int temp = arr[i];
+        while (j >= 0 && arr[j] > temp)
+        {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+        arr[j + 1] = temp;
+    }
+}
+
 int main()
 {
     int arr[] = {2, 7, 6, 9, 4, 5};
     int n = sizeof(arr) / sizeof(arr[0]);
-    bubbleSort(arr, n);
+    insertionSort(arr, n);
 
     cout << endl;
     printArray(arr, n);

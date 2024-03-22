@@ -79,14 +79,26 @@ void peakElements(int arr[], int n)
         }
     }
 }
+
+// find repeating element
+int repeatingElement(int arr[], int n)
+{
+    vector<bool> visited(n, false);
+    for (int i = 0; i < n; i++)
+    {
+        if (visited[arr[i]])
+            return arr[i];
+        visited[arr[i]] = true;
+    }
+}
 int main()
 {
 
-    int arr[] = {12, 67, 9};
+    int arr[] = {0, 2, 1, 3, 2, 2};
     int n = sizeof(arr) / sizeof(arr[0]);
 
-    peakElements(arr, n);
-    // int result = countOccurances(arr, n, 1);
-    // cout << result << endl;
+    // peakElements(arr, n);
+    int result = repeatingElement(arr, n);
+    cout << result << endl;
     return 0;
 }

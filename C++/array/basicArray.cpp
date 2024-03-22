@@ -346,17 +346,16 @@ bool IsEquilibriumPoint2(int arr[], int n)
 }
 int main()
 {
-    int arr[] = {3, 4, 8, -9, 20, 6};
-
+    // int arr[] = {3, 4, 8, -9, 20, 6};
+    int arr[] = {false, true};
     // int arr[] = {1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1};
 
     int n = sizeof(arr) / sizeof(arr[0]);
 
     // printArray(arr, n);
 
-    // minimumConsecutiveFlips(arr, n);
-    int result = IsEquilibriumPoint2(arr, n);
-    cout << result << endl;
+    // int result = IsEquilibriumPoint2(arr, n);
+    // cout << result << endl;
 
     printArray(arr, n);
 

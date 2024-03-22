@@ -47,11 +47,25 @@ void insertionSort(int arr[], int n)
     }
 }
 
+void selectionSort(int arr[], int n)
+{
+    int k;
+    for (int i = 0; i < n - 1; i++)
+    {
+        for (int j = k = i; j < n; j++)
+        {
+            if (arr[j] < arr[k])
+                k = j;
+        }
+        swap(arr[k], arr[i]);
+    }
+}
+
 int main()
 {
     int arr[] = {2, 7, 6, 9, 4, 5};
     int n = sizeof(arr) / sizeof(arr[0]);
-    insertionSort(arr, n);
+    selectionSort(arr, n);
 
     cout << endl;
     printArray(arr, n);

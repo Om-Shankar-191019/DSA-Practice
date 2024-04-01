@@ -133,6 +133,22 @@ int removeSortedDuplicates(int arr[], int n)
     return firstPointer + 1;
 }
 
+void moveAllZeroNaive(int arr[], int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i] == 0)
+        {
+            for (int j = i + 1; j < n; j++)
+            {
+                if (arr[j] != 0)
+                {
+                    swap(arr[i], arr[j]);
+                }
+            }
+        }
+    }
+}
 // move all zeros to the end (efficient) -- two pointer
 void moveAllZeros(int arr[], int n)
 {
@@ -344,15 +360,16 @@ bool IsEquilibriumPoint2(int arr[], int n)
 
     return false;
 }
+
 int main()
 {
     // int arr[] = {3, 4, 8, -9, 20, 6};
-    int arr[] = {false, true};
-    // int arr[] = {1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1};
+    // int arr[] = {false, true};
+    int arr[] = {10, 5, 0, 8, 0, 9, 0};
 
     int n = sizeof(arr) / sizeof(arr[0]);
 
-    // printArray(arr, n);
+    moveAllZeroNaive(arr, n);
 
     // int result = IsEquilibriumPoint2(arr, n);
     // cout << result << endl;

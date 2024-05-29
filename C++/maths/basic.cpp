@@ -25,10 +25,15 @@ int reverseNum(int n)
     return y;
 }
 
+bool isPalindromeNum(int n)
+{
+    return n == reverseNum(n);
+}
 int main()
 {
 
-    int result = reverseNum(234);
+    // int result = reverseNum(234);
+    bool result = isPalindromeNum(2345432);
     cout << result << endl;
     return 0;
 }

@@ -13,10 +13,22 @@ int countDigit(long n)
     return c;
 }
 
+int reverseNum(int n)
+{
+    int y = 0;
+    while (n != 0)
+    {
+        int r = n % 10;
+        y = y * 10 + r;
+        n = n / 10;
+    }
+    return y;
+}
+
 int main()
 {
 
-    int result = countDigit(3);
+    int result = reverseNum(234);
     cout << result << endl;
     return 0;
 }

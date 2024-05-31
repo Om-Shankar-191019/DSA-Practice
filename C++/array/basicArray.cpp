@@ -207,6 +207,23 @@ void freqInSortedArray(int arr[], int n)
     cout << arr[n - 1] << " : " << count << endl;
 }
 
+void freqInSortedArray2(int arr[], int n)
+{
+    int c = 1;
+    int i = 1;
+    for (; i < n; i++)
+    {
+        if (arr[i] == arr[i - 1])
+            c++;
+        else
+        {
+            cout << arr[i - 1] << " : " << c << endl;
+            c = 1;
+        }
+    }
+    cout << arr[i - 1] << " : " << c << endl;
+}
+
 int tappingRainWaterNaive(int arr[], int n)
 {
     int result = 0;
@@ -377,11 +394,11 @@ int main()
 {
     // int arr[] = {3, 4, 8, -9, 20, 6};
     // int arr[] = {false, true};
-    int arr[] = {0, 0, 10, 5, 0, 8, 0, 9, 0};
+    int arr[] = {1, 1, 1, 1, 2, 2, 4, 5, 6, 7, 7, 7, 7, 7, 7, 8, 9};
 
     int n = sizeof(arr) / sizeof(arr[0]);
 
-    moveAllZeros2(arr, n);
+    freqInSortedArray2(arr, n);
 
     // int result = IsEquilibriumPoint2(arr, n);
     // cout << result << endl;

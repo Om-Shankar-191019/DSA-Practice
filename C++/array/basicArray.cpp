@@ -149,6 +149,7 @@ void moveAllZeroNaive(int arr[], int n)
         }
     }
 }
+
 // move all zeros to the end (efficient) -- two pointer
 void moveAllZeros(int arr[], int n)
 {
@@ -158,14 +159,6 @@ void moveAllZeros(int arr[], int n)
     {
         if (arr[j] != 0)
         {
-            // arr[i] = arr[j];
-            // if (i != j)
-            // {
-            //     arr[j] = 0;
-            // }
-            // i++;
-            // j++;
-
             swap(arr[i], arr[j]);
             i++;
             j++;
@@ -173,6 +166,25 @@ void moveAllZeros(int arr[], int n)
         else
         {
             j++;
+        }
+    }
+}
+
+void moveAllZeros2(int arr[], int n)
+{
+    for (int x = 0; x < n; x++)
+    {
+        if (arr[x] == 0)
+        {
+            int k = x;
+            for (int i = x + 1; i < n; i++)
+            {
+                if (arr[i] != 0)
+                {
+                    swap(arr[k], arr[i]);
+                    k++;
+                }
+            }
         }
     }
 }
@@ -365,11 +377,11 @@ int main()
 {
     // int arr[] = {3, 4, 8, -9, 20, 6};
     // int arr[] = {false, true};
-    int arr[] = {10, 5, 0, 8, 0, 9, 0};
+    int arr[] = {0, 0, 10, 5, 0, 8, 0, 9, 0};
 
     int n = sizeof(arr) / sizeof(arr[0]);
 
-    moveAllZeroNaive(arr, n);
+    moveAllZeros2(arr, n);
 
     // int result = IsEquilibriumPoint2(arr, n);
     // cout << result << endl;

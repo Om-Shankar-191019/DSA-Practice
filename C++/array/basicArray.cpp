@@ -390,18 +390,29 @@ bool IsEquilibriumPoint2(int arr[], int n)
     return false;
 }
 
+int stockBuyAndSell(int arr[], int n)
+{
+    int profit = 0;
+    for (int i = 1; i < n; i++)
+    {
+        if (arr[i] > arr[i - 1])
+            profit += arr[i] - arr[i - 1];
+    }
+    return profit;
+}
+
 int main()
 {
     // int arr[] = {3, 4, 8, -9, 20, 6};
     // int arr[] = {false, true};
-    int arr[] = {1, 1, 1, 1, 2, 2, 4, 5, 6, 7, 7, 7, 7, 7, 7, 8, 9};
+    int arr[] = {1, 5, 3, 8, 12};
 
     int n = sizeof(arr) / sizeof(arr[0]);
 
-    freqInSortedArray2(arr, n);
+    // freqInSortedArray2(arr, n);
 
-    // int result = IsEquilibriumPoint2(arr, n);
-    // cout << result << endl;
+    int result = stockBuyAndSell(arr, n);
+    cout << result << endl;
 
     printArray(arr, n);
 

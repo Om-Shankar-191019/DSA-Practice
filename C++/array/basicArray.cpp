@@ -340,6 +340,28 @@ void minimumConsecutiveFlips(int arr[], int n)
     }
 }
 
+void minimumConsecutiveFlips2(int arr[], int n)
+{
+    int target;
+    if (arr[0] == 0)
+        target = 1;
+    else
+        target = 0;
+
+    for (int i = 1; i < n; i++)
+    {
+        if (arr[i] == target)
+        {
+            int start = i;
+            while (i < n && arr[i] == target)
+                i++;
+
+            int end = i - 1;
+            cout << start << " to " << end << endl;
+        }
+    }
+}
+
 bool IsequilibriumPoint(int arr[], int n)
 {
     if (n == 1)
@@ -403,18 +425,18 @@ int stockBuyAndSell(int arr[], int n)
 
 int main()
 {
-    // int arr[] = {3, 4, 8, -9, 20, 6};
+    int arr[] = {1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1};
     // int arr[] = {false, true};
-    int arr[] = {1, 5, 3, 8, 12};
+    // int arr[] = {1, 5, 3, 8, 12};
 
     int n = sizeof(arr) / sizeof(arr[0]);
 
-    // freqInSortedArray2(arr, n);
+    minimumConsecutiveFlips2(arr, n);
 
-    int result = stockBuyAndSell(arr, n);
-    cout << result << endl;
+    // int result = stockBuyAndSell(arr, n);
+    // cout << result << endl;
 
-    printArray(arr, n);
+    // printArray(arr, n);
 
     return 0;
 }

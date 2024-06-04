@@ -53,6 +53,25 @@ int countOccurances(int arr[], int n, int x)
     return count;
 }
 
+// get square root else get floor of x.
+
+int squareRootNaive(int x)
+{
+    int res = 0;
+    for (int i = 1; i < x; i++)
+    {
+        if (i * i == x)
+            return i;
+        else if (i * i < x)
+        {
+            res = i;
+        }
+        else
+            break;
+    }
+    return res;
+}
+
 void peakElements(int arr[], int n)
 {
     if (n == 1)
@@ -98,7 +117,7 @@ int main()
     int n = sizeof(arr) / sizeof(arr[0]);
 
     // peakElements(arr, n);
-    int result = repeatingElement(arr, n);
+    int result = squareRootNaive(50);
     cout << result << endl;
     return 0;
 }

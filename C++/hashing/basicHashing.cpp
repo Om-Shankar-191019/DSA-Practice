@@ -20,11 +20,39 @@ bool isSubArrayWithGivenSumExist(int arr[], int n, int sum)
     return false;
 }
 
+int longestConsecutiveSubseqNaive(int arr[], int n)
+{
+    int res = 0;
+    for (int i = 0; i < n; i++)
+    {
+        int s = arr[i] + 1;
+        int count = 1;
+        bool flag;
+        do
+        {
+            flag = false;
+            for (int j = 0; j < n; j++)
+            {
+                if (s == arr[j])
+                {
+                    flag = true;
+                    count++;
+                    break;
+                }
+            }
+            s++;
+            // cout << " count : " << count << endl;
+        } while (flag);
+        // cout << "res : " << res << endl;
+        res = max(res, count);
+    }
+    return res;
+}
 int main()
 {
-    int arr[] = {2, 3, 5};
+    int arr[] = {2, 3, 9, 21, 4, 20, 23, 22, 25, 24};
     int n = sizeof(arr) / sizeof(arr[0]);
-    bool fun = isSubArrayWithGivenSumExist(arr, n, 5);
+    int fun = longestConsecutiveSubseqNaive(arr, n);
     cout << fun << endl;
     return 0;
 }

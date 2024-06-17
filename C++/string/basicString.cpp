@@ -44,11 +44,40 @@ void freqOfChars2(string &s)
             cout << (char)(i + 97) << " : " << count[i] << endl;
     }
 }
+
+int patternSearchingNaive(string &txt, string &pat)
+{
+    for (int i = 0; i < txt.length(); i++)
+    {
+        int j = 0;
+        if (txt[i] == pat[j])
+        {
+            int startIndex = i;
+            int k = i;
+            k++;
+            j++;
+            while (k < txt.length() && j < pat.length() && txt[k] == pat[j])
+            {
+                k++;
+                j++;
+            }
+
+            if (j == pat.length())
+            {
+                return startIndex;
+            }
+        }
+    }
+    return -1;
+}
+
 int main()
 {
 
     string str = "geeksforgeeks";
-    freqOfChars2(str);
-    cout << str;
+    string pat = "ks";
+    // freqOfChars2(str);
+    int res = patternSearchingNaive(str, pat);
+    cout << res;
     return 0;
 }

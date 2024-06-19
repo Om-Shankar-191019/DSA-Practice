@@ -50,7 +50,6 @@ int main()
         }
 
         int res = fun(a, b);
-        cout << "res : " << res;
-        return res;
-    }
+        cout << res << endl;
+        }
 }

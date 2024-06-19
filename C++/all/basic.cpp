@@ -30,13 +30,32 @@ void reverseString(string &s)
         swap(s[i], s[n - 1 - i]);
     }
 }
+
+void fibonacciSeries(int n)
+{
+    int a = 0;
+    int b = 1;
+    if (n == 1)
+        cout << a;
+    else if (n >= 2)
+    {
+        cout << a << " " << b << " ";
+        for (int i = 3; i <= n; i++)
+        {
+            int c = a + b;
+            a = b;
+            b = c;
+            cout << c << " ";
+        }
+    }
+}
 int main()
 {
     // int num = 2345;
-    string str = "going";
+    // string str = "going";
 
-    reverseString(str);
-    cout << str << endl;
+    fibonacciSeries(10);
+
     // int result = reverseNumber(num);
     // cout << result << endl;
     return 0;

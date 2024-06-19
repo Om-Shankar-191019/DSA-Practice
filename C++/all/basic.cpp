@@ -22,10 +22,22 @@ int reverseNumber(int num)
     return y;
 }
 
+void reverseString(string &s)
+{
+    int n = s.length();
+    for (int i = 0; i < n / 2; i++)
+    {
+        swap(s[i], s[n - 1 - i]);
+    }
+}
 int main()
 {
-    int num = 2345;
-    int result = reverseNumber(num);
-    cout << result << endl;
+    // int num = 2345;
+    string str = "going";
+
+    reverseString(str);
+    cout << str << endl;
+    // int result = reverseNumber(num);
+    // cout << result << endl;
     return 0;
 }

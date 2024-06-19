@@ -49,14 +49,21 @@ void fibonacciSeries(int n)
         }
     }
 }
+
+bool isPalindrome(int n)
+{
+    int temp = reverseNumber(n);
+    return temp == n;
+}
+
 int main()
 {
     // int num = 2345;
     // string str = "going";
 
-    fibonacciSeries(10);
+    // fibonacciSeries(10);
 
-    // int result = reverseNumber(num);
-    // cout << result << endl;
+    bool result = isPalindrome(1234321);
+    cout << result << endl;
     return 0;
 }

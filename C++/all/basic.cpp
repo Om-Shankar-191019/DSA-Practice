@@ -10,15 +10,22 @@ void swapTwoNumbers(int *a, int *b)
     *b = temp;
 }
 
+int reverseNumber(int num)
+{
+    int y = 0;
+    while (num)
+    {
+        int r = num % 10;
+        y = y * 10 + r;
+        num = num / 10;
+    }
+    return y;
+}
+
 int main()
 {
-    int a = 10;
-    int b = 20;
-    cout << " a : " << a << endl;
-    cout << " b : " << b << endl;
-    cout << " after swap ----- " << endl;
-    swapTwoNumbers(&a, &b);
-    cout << " a : " << a << endl;
-    cout << " b : " << b << endl;
+    int num = 2345;
+    int result = reverseNumber(num);
+    cout << result << endl;
     return 0;
 }

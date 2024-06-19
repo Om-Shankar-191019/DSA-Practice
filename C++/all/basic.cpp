@@ -56,6 +56,19 @@ bool isPalindrome(int n)
     return temp == n;
 }
 
+bool isPalindromeString(string s)
+{
+    int i = 0;
+    int j = s.length() - 1;
+    while (i < j)
+    {
+        if (s[i] != s[j])
+            return false;
+        i++;
+        j--;
+    }
+    return true;
+}
 int main()
 {
     // int num = 2345;
@@ -63,7 +76,7 @@ int main()
 
     // fibonacciSeries(10);
 
-    bool result = isPalindrome(1234321);
+    bool result = isPalindromeString("datad");
     cout << result << endl;
     return 0;
 }

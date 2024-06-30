@@ -55,6 +55,20 @@ void removeDuplicates(Node *head)
     }
     p->next = NULL;
 }
+Node *reverseIterative(Node *head)
+{
+    Node *curr = head;
+    Node *p = NULL;
+    while (curr)
+    {
+        Node *t = curr->next;
+        curr->next = p;
+        p = curr;
+
+        curr = t;
+    }
+    return p;
+}
 int main()
 {
     Node *t1 = new Node(10);
@@ -68,8 +82,8 @@ int main()
     t3->next = t4;
     t4->next = t5;
 
-    removeDuplicates(t1);
+    Node *result = reverseIterative(t1);
     cout << endl;
-    printList(t1);
+    printList(result);
     return 0;
 }

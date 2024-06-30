@@ -23,6 +23,38 @@ void printList(Node *head)
         curr = curr->next;
     }
 }
+
+// remove duplicates from sorted linked list.
+void removeDuplicates(Node *head)
+{
+    Node *curr = head;
+    Node *p = NULL;
+
+    if (curr == NULL || curr->next == NULL)
+    {
+        return;
+    }
+
+    p = curr;
+    curr = curr->next;
+
+    while (curr)
+    {
+        if (curr->data != p->data)
+        {
+            p->next = curr;
+            p = curr;
+            curr = curr->next;
+        }
+        else
+        {
+            Node *temp = curr;
+            curr = curr->next;
+            delete (temp);
+        }
+    }
+    p->next = NULL;
+}
 int main()
 {
     Node *t1 = new Node(10);
@@ -36,6 +68,8 @@ int main()
     t3->next = t4;
     t4->next = t5;
 
+    removeDuplicates(t1);
+    cout << endl;
     printList(t1);
     return 0;
 }

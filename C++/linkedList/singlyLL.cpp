@@ -22,6 +22,8 @@ void printList(Node *head)
         cout << curr->data << " ";
         curr = curr->next;
     }
+
+    cout << " \n i am done with print" << endl;
 }
 
 // remove duplicates from sorted linked list.
@@ -69,21 +71,121 @@ Node *reverseIterative(Node *head)
     }
     return p;
 }
+
+// wrong code. need to be corrected--
+// Node *reverseInGroupOfK(Node *head, int k)
+// {
+//     Node *newHead = NULL;
+//     bool firstGroup = true;
+//     Node *groupHead = head;
+//     Node *jointNodePre = NULL;
+
+//     while (groupHead)
+//     {
+//         int makeMove = k - 1;
+//         Node *jointNodeNxt = groupHead;
+//         Node *curr = groupHead;
+//         while (curr && makeMove--)
+//         {
+//             curr = curr->next;
+//         }
+//         if (curr)
+//             groupHead = curr->next;
+//         else
+//             groupHead = NULL;
+//         Node *newGroupHead = reverseIterative(jointNodeNxt);
+//         if (firstGroup)
+//         {
+//             newHead = newGroupHead;
+//             firstGroup = false;
+//         }
+//         if (jointNodePre)
+//         {
+//             jointNodePre->next = newGroupHead;
+//         }
+//         jointNodePre = jointNodeNxt;
+//     }
+//     return newHead;
+// }
+
+Node *segregateEvenOdd(Node *head)
+{
+    Node *evenHead = NULL;
+    Node *oddHead = NULL;
+    Node *e = NULL;
+    Node *o = NULL;
+
+    Node *curr = head;
+    while (curr)
+    {
+        if (curr->data % 2 == 0)
+        {
+            if (evenHead == NULL)
+            {
+                evenHead = curr;
+                e = curr;
+            }
+            else
+            {
+                e->next = curr;
+                e = curr;
+            }
+        }
+        else
+        {
+            if (oddHead == NULL)
+            {
+                oddHead = curr;
+                o = curr;
+            }
+            else
+            {
+                o->next = curr;
+                o = curr;
+            }
+        }
+        curr = curr->next;
+    }
+
+    if (e)
+    {
+        e->next = oddHead;
+        if (o)
+        {
+            o->next = NULL;
+        }
+        return evenHead;
+    }
+    else
+    {
+        if (o)
+        {
+            o->next = NULL;
+        }
+        return oddHead;
+    }
+}
 int main()
 {
-    Node *t1 = new Node(10);
-    Node *t2 = new Node(20);
-    Node *t3 = new Node(30);
-    Node *t4 = new Node(40);
-    Node *t5 = new Node(50);
+    Node *nul = NULL;
+    Node *t1 = new Node(17);
+    Node *t2 = new Node(15);
+    Node *t3 = new Node(8);
+    Node *t4 = new Node(12);
+    Node *t5 = new Node(5);
+    Node *t6 = new Node(4);
 
     t1->next = t2;
     t2->next = t3;
     t3->next = t4;
     t4->next = t5;
+    t5->next = t6;
 
-    Node *result = reverseIterative(t1);
+    // Node *result = reverseInGroupOfK(t1, 3);
+    Node *result = segregateEvenOdd(t1);
     cout << endl;
     printList(result);
+    // printList(t1);
+
     return 0;
 }

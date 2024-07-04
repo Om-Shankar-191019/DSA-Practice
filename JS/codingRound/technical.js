@@ -14,4 +14,15 @@ function findLongestWord(str) {
     ""
   );
 }
-console.log(findLongestWord("go and watch panchayat wet     series."));
+// console.log(findLongestWord("go and watch panchayat wet     series."));
+
+function findLongestWord2(str) {
+  let words = str.split(" ");
+  let result = words[0];
+  for (let i = 1; i < words.length; i++) {
+    if (words[i].length > result.length) result = words[i];
+  }
+  return result;
+}
+
+// console.log(findLongestWord2("go and watch panchayat wet     series."));

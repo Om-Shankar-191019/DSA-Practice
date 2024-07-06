@@ -25,4 +25,17 @@ function findLongestWord2(str) {
   return result;
 }
 
-// console.log(findLongestWord2("go and watch panchayat wet     series."));
+// i/p : "go and watch panchayat web     series."
+// o/p : #GoAndWatchPanchayatWebSeries.
+function generateHashTag(str) {
+  let res = "#";
+  let resArray = str.split(" ");
+  for (let i = 0; i < resArray.length; i++) {
+    if (resArray[i] !== "") {
+      res = res + resArray[i][0].toUpperCase() + resArray[i].slice(1);
+    }
+  }
+  return res;
+}
+
+console.log(generateHashTag("go and watch panchayat web     series."));

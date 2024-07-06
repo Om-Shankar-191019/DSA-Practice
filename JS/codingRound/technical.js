@@ -38,4 +38,16 @@ function generateHashTag(str) {
   return res;
 }
 
-console.log(generateHashTag("go and watch panchayat web     series."));
+function generateHashTag2(str) {
+  let words = str.split(" ");
+  words = words.map((item) => {
+    if (item.length != 0) {
+      return item.replace(item[0], item[0].toUpperCase());
+    }
+  });
+  words = words.join("");
+  words = `#${words}`;
+  return words;
+}
+
+console.log(generateHashTag2("go and watch panchayat web     series."));

@@ -42,7 +42,8 @@ function generateHashTag2(str) {
   let words = str.split(" ");
   words = words.map((item) => {
     if (item.length != 0) {
-      return item.replace(item[0], item[0].toUpperCase());
+      // return item.replace(item[0], item[0].toUpperCase());
+      return item.charAt(0).toUpperCase() + item.slice(1);
     }
   });
   words = words.join("");

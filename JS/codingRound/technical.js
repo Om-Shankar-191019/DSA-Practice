@@ -97,4 +97,8 @@ function bubbleSort(arr) {
 function sortAscending(arr) {
   return arr.sort((a, b) => a - b);
 }
-console.log(sortAscending([12, 23, 6, 9, 29, 14]));
+
+function sortDescending(arr) {
+  return arr.sort((a, b) => b - a);
+}
+console.log(sortDescending([12, 23, 6, 9, 29, 14]));

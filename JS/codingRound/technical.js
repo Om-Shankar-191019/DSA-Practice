@@ -74,4 +74,24 @@ function countChar2(str, key) {
     return acc;
   }, 0);
 }
-console.log(countChar2("MissIssippi", "I"));
+// console.log(countChar2("MissIssippi", "I"));
+
+// function to sort an array in ascending order
+
+function bubbleSort(arr) {
+  for (let i = 0; i < arr.length - 1; i++) {
+    let flag = false;
+    for (let j = 1; j < arr.length; j++) {
+      if (arr[j - 1] > arr[j]) {
+        let temp = arr[j];
+        arr[j] = arr[j - 1];
+        arr[j - 1] = temp;
+        flag = true;
+      }
+    }
+    if (flag === false) break;
+  }
+  return arr;
+}
+
+console.log(bubbleSort([12, 23, 6, 9, 29, 14]));

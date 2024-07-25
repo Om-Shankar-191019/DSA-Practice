@@ -51,4 +51,27 @@ function generateHashTag2(str) {
   return words;
 }
 
-console.log(generateHashTag2("go and watch panchayat web     series."));
+// console.log(generateHashTag2("go and watch panchayat web     series."));
+
+// count of given char from string.
+function countChar(str, key) {
+  let c = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === key.toLowerCase() || str[i] === key.toUpperCase()) c++;
+  }
+  return c;
+}
+
+function countChar2(str, key) {
+  str = str.toLowerCase();
+  key = key.toLowerCase();
+
+  arr = str.split("");
+  return arr.reduce((acc, char) => {
+    if (char === key) {
+      acc++;
+    }
+    return acc;
+  }, 0);
+}
+console.log(countChar2("MissIssippi", "I"));

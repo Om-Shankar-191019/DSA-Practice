@@ -66,4 +66,20 @@ function pattern2(n) {
     console.log(str);
   }
 }
-pattern2(4);
+// pattern2(4);
+
+// ****
+// ***
+// **
+// *
+function invertedRightAngleTriangle(n) {
+  for (let i = 0; i < n; i++) {
+    let str = "";
+    for (let j = 0; j < n - i; j++) {
+      str += "*";
+    }
+    console.log(str);
+  }
+}
+
+invertedRightAngleTriangle(4);

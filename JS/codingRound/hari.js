@@ -82,4 +82,14 @@ function invertedRightAngleTriangle(n) {
   }
 }
 
-invertedRightAngleTriangle(4);
+function invertedRightAngleTriangle2(n) {
+  for (let i = n; i >= 1; i--) {
+    let str = "";
+    for (let j = 0; j < i; j++) {
+      str += "*";
+    }
+    console.log(str);
+  }
+}
+
+invertedRightAngleTriangle2(4);

@@ -92,4 +92,24 @@ function invertedRightAngleTriangle2(n) {
   }
 }
 
-invertedRightAngleTriangle2(4);
+// invertedRightAngleTriangle2(4);
+
+//     *
+//    ***
+//   *****
+//  *******
+// *********
+function pyramid(r) {
+  for (let i = 1; i <= r; i++) {
+    let str = "";
+    for (let j = 1; j <= r - i; j++) {
+      str += " ";
+    }
+    for (let j = 1; j <= 2 * i - 1; j++) {
+      str += "*";
+    }
+    console.log(str);
+  }
+}
+
+pyramid(5);

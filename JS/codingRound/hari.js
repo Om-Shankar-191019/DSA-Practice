@@ -4,4 +4,8 @@ function sumToN(n) {
   return sum;
 }
 
-console.log(sumToN(100));
+function sumToN2(n) {
+  return (n * (n + 1)) / 2;
+}
+
+console.log(sumToN2(100));

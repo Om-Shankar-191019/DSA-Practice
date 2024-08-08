@@ -8,4 +8,34 @@ function sumToN2(n) {
   return (n * (n + 1)) / 2;
 }
 
-console.log(sumToN2(100));
+// console.log(sumToN2(100));
+
+function fibonacci(n) {
+  let a = 0;
+  let b = 1;
+  if (n == 1) console.log(0);
+  else if (n == 2) console.log(1);
+  else {
+    let c;
+    console.log(0);
+    console.log(1);
+    for (let i = 3; i <= n; i++) {
+      c = a + b;
+      a = b;
+      b = c;
+      console.log(c);
+    }
+  }
+}
+
+function fibonacciInArray(n) {
+  if (n == 1) return [0];
+  else if (n == 2) return [0, 1];
+  else {
+    let fibo = [0, 1];
+    for (let i = 2; i < n; i++) fibo.push(fibo[i - 2] + fibo[i - 1]);
+    return fibo;
+  }
+}
+
+console.log(fibonacciInArray(10));

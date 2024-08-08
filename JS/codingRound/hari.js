@@ -38,4 +38,19 @@ function fibonacciInArray(n) {
   }
 }
 
-console.log(fibonacciInArray(10));
+// console.log(fibonacciInArray(10));
+
+// *
+// **
+// ***
+// ****
+// *****
+function pattern1(r) {
+  for (let i = 1; i <= r; i++) {
+    let stars = "";
+    for (let j = 1; j <= i; j++) stars += "*";
+    console.log(stars);
+  }
+}
+
+pattern1(8);

@@ -124,4 +124,17 @@ function isPalindrome(str) {
   return true;
 }
 
-console.log(isPalindrome("A man, a plan, a canal, Panama"));
+// console.log(isPalindrome("A man, a plan, a canal, Panama"));
+
+function maximumOfArray(arr) {
+  let res = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (res < arr[i]) res = arr[i];
+  }
+  return res;
+}
+
+function maximumOfArray2(arr) {
+  return Math.max(...arr);
+}
+console.log(maximumOfArray2([34, 645, 11, 4, 67]));

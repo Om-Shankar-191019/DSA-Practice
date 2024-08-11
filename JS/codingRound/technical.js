@@ -101,4 +101,27 @@ function sortAscending(arr) {
 function sortDescending(arr) {
   return arr.sort((a, b) => b - a);
 }
-console.log(sortDescending([12, 23, 6, 9, 29, 14]));
+// console.log(sortDescending([12, 23, 6, 9, 29, 14]));
+
+function isPalindrome(str) {
+  str = str.trim();
+  let input = "";
+  for (let i = 0; i < str.length; i++) {
+    let char = str[i];
+    if ((char >= "a" && char <= "z") || (char >= "A" && char <= "Z")) {
+      input += char;
+    }
+  }
+  input = input.toLowerCase();
+  let i = 0;
+  let j = input.length - 1;
+  while (i < j) {
+    if (input[i] !== input[j]) return false;
+    i++;
+    j--;
+  }
+
+  return true;
+}
+
+console.log(isPalindrome("A man, a plan, a canal, Panama"));

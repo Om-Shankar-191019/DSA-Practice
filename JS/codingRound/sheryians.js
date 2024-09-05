@@ -52,6 +52,18 @@ function emptyArray2(arr) {
   return arr;
 }
 
-let a = ["hi", "there"];
-console.log(emptyArray2(a));
-console.log(" a : ", a);
+// let a = ["hi", "there"];
+// console.log(emptyArray2(a));
+// console.log(" a : ", a);
+
+// Q4 How to check whether a number is an integer?
+
+function checkInteger(num) {
+  return Number.isInteger(num);
+}
+
+function checkInteger2(num) {
+  return num % 1 === 0;
+}
+
+console.log(checkInteger2(12.3));

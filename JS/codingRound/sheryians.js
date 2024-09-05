@@ -66,4 +66,18 @@ function checkInteger2(num) {
   return num % 1 === 0;
 }
 
-console.log(checkInteger2(12.3));
+// console.log(checkInteger2(12.3));
+
+// Q5 given [1,2,3,4,5]  o/p [1,2,3,4,5,1,2,3,4,5] . i.e duplicate it
+function duplicate(arr) {
+  let copyArr = [...arr];
+  return [...arr, ...copyArr];
+}
+
+function duplicate2(arr) {
+  return arr.concat(arr);
+}
+
+let a = [1, 2, 3, 4, 5];
+console.log(duplicate2(a));
+console.log(a);

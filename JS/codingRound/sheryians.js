@@ -25,4 +25,33 @@ function reverseWordFromSent2(sent) {
   return reversedArr.join(" ");
 }
 
-console.log(reverseWordFromSent2("harse bhai kaise ho"));
+// console.log(reverseWordFromSent2("harse bhai kaise ho"));
+
+// Q.2 check whether an object is an array or not ? --------
+
+function checkArray(obj) {
+  return Array.isArray(obj);
+}
+
+// console.log(checkArray([]));
+// console.log(checkArray({}));
+// console.log(checkArray("string"));
+
+// Q.3 How to empty an array in js ?
+
+function emptyArray(arr) {
+  //   arr = []; not a good solution.
+  while (arr.length > 0) {
+    arr.pop();
+  }
+  return arr;
+}
+
+function emptyArray2(arr) {
+  arr.length = 0;
+  return arr;
+}
+
+let a = ["hi", "there"];
+console.log(emptyArray2(a));
+console.log(" a : ", a);

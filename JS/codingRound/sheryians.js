@@ -99,4 +99,13 @@ function reverseNumber2(num) {
   return Number(num.toString().split("").reverse().join(""));
 }
 
-console.log(reverseNumber(341));
+// console.log(reverseNumber(341));
+
+// Q7 is string palindrome
+
+function isPalindrome(str) {
+  let copyStr = str;
+  return copyStr === str.split("").reverse().join("");
+}
+
+console.log(isPalindrome("hiom"));

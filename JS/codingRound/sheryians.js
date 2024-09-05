@@ -78,6 +78,25 @@ function duplicate2(arr) {
   return arr.concat(arr);
 }
 
-let a = [1, 2, 3, 4, 5];
-console.log(duplicate2(a));
-console.log(a);
+// let a = [1, 2, 3, 4, 5];
+// console.log(duplicate2(a));
+// console.log(a);
+
+// Q6 reverse number
+function reverseNumber(num) {
+  let y = 0;
+  let n = num;
+  while (n) {
+    let r = n % 10;
+    y = y * 10 + r;
+    n = Math.floor(n / 10);
+  }
+  return y;
+}
+
+function reverseNumber2(num) {
+  //   return parseInt(num.toString().split("").reverse().join(""));
+  return Number(num.toString().split("").reverse().join(""));
+}
+
+console.log(reverseNumber(341));

@@ -137,4 +137,19 @@ function maximumOfArray(arr) {
 function maximumOfArray2(arr) {
   return Math.max(...arr);
 }
-console.log(maximumOfArray2([34, 645, 11, 4, 67]));
+// console.log(maximumOfArray2([34, 645, 11, 4, 67]));
+
+// Q remove duplicates from array.---------
+function distinct(a) {
+  a.sort();
+  let result = [];
+  result.push(a[0]);
+  for (let i = 1; i < a.length; i++) {
+    if (a[i] !== a[i - 1]) {
+      result.push(a[i]);
+    }
+  }
+  return result;
+}
+
+console.log(distinct([2, 2, 2, 8, 8, 5, 4]));

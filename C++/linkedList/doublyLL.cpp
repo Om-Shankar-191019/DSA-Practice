@@ -26,6 +26,21 @@ void printNodes(Node *head)
         curr = curr->next;
     }
 }
+
+Node *reverseIterative(Node *head)
+{
+    if (head == NULL || head->next == NULL)
+        return head;
+
+    Node *nxt = NULL;
+    Node *p = NULL;
+    Node *curr = head;
+    while (curr)
+    {
+        nxt = curr->next;
+        curr->next = p;
+    }
+}
 int main()
 {
 

@@ -23,7 +23,7 @@ void printList(Node *head)
         curr = curr->next;
     }
 
-    cout << " \n i am done with print" << endl;
+    // cout << " \n i am done with print" << endl;
 }
 
 // remove duplicates from sorted linked list.
@@ -71,42 +71,6 @@ Node *reverseIterative(Node *head)
     }
     return p;
 }
-
-// wrong code. need to be corrected--
-// Node *reverseInGroupOfK(Node *head, int k)
-// {
-//     Node *newHead = NULL;
-//     bool firstGroup = true;
-//     Node *groupHead = head;
-//     Node *jointNodePre = NULL;
-
-//     while (groupHead)
-//     {
-//         int makeMove = k - 1;
-//         Node *jointNodeNxt = groupHead;
-//         Node *curr = groupHead;
-//         while (curr && makeMove--)
-//         {
-//             curr = curr->next;
-//         }
-//         if (curr)
-//             groupHead = curr->next;
-//         else
-//             groupHead = NULL;
-//         Node *newGroupHead = reverseIterative(jointNodeNxt);
-//         if (firstGroup)
-//         {
-//             newHead = newGroupHead;
-//             firstGroup = false;
-//         }
-//         if (jointNodePre)
-//         {
-//             jointNodePre->next = newGroupHead;
-//         }
-//         jointNodePre = jointNodeNxt;
-//     }
-//     return newHead;
-// }
 
 Node *segregateEvenOdd(Node *head)
 {
@@ -181,7 +145,6 @@ int main()
     t4->next = t5;
     t5->next = t6;
 
-    // Node *result = reverseInGroupOfK(t1, 3);
     Node *result = segregateEvenOdd(t1);
     cout << endl;
     printList(result);

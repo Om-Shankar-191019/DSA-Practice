@@ -108,4 +108,11 @@ function isPalindrome(str) {
   return copyStr === str.split("").reverse().join("");
 }
 
-console.log(isPalindrome("hiom"));
+// console.log(isPalindrome("hiom"));
+
+// function alphabeticalString(str){
+//     let arr = str.split("");
+//     let resultArr = arr.map(function (char){
+
+//     })
+// }

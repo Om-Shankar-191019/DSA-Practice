@@ -144,3 +144,39 @@
 // console.log(memoizedAdd(1, 4));
 
 // real world use case -- fibonacci series using recursion
+// -----------------------------------------
+
+// memoization with set time out ------- asynchronous code ----------
+
+// function fun(name) {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       resolve(`welcome ${name}`);
+//     }, 2000);
+//   });
+// }
+
+// let memoizedFun = function (fx) {
+//   let cache = {};
+//   return async function (name) {
+//     try {
+//       if (cache[name]) {
+//         console.log("Result from cache:");
+//         return cache[name];
+//       } else {
+//         console.log("Heavy calculation:");
+//         let result = fx(name);
+//         cache[name] = result;
+//         return await result;
+//       }
+//     } catch (error) {
+//       console.log(error);
+//     }
+//     return null;
+//   };
+// };
+
+// let memoizedGreet = memoizedFun(fun);
+// console.log(memoizedGreet("om shankar"));
+// console.log(memoizedGreet("om shankar"));
+// console.log(memoizedGreet("om shankar"));

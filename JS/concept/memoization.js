@@ -177,6 +177,6 @@
 // };
 
 // let memoizedGreet = memoizedFun(fun);
-// console.log(memoizedGreet("om shankar"));
-// console.log(memoizedGreet("om shankar"));
-// console.log(memoizedGreet("om shankar"));
+// memoizedGreet("om shankar").then((res) => console.log(res));
+// memoizedGreet("om shankar").then((res) => console.log(res));
+// memoizedGreet("om shankar").then((res) => console.log(res));

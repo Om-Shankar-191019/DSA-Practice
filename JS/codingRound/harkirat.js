@@ -133,6 +133,13 @@ function isPrime(num) {
 
 // console.log(isPrime(11));
 
-console.log(parseFloat("45"));
-console.log(parseFloat("sdfg45asdf"));
-console.log(parseFloat("45.55"));
+// console.log(parseFloat("45"));
+// console.log(parseFloat("sdfg45asdf"));
+// console.log(parseFloat("45.55"));
+
+function getRandomNumberBetween(min, max) {
+  return Math.floor(Math.random() * (max + 1 - min)) + min;
+}
+
+const randomNum = getRandomNumberBetween(12, 15);
+console.log(randomNum);

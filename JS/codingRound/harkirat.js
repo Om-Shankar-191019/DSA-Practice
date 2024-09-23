@@ -141,5 +141,18 @@ function getRandomNumberBetween(min, max) {
   return Math.floor(Math.random() * (max + 1 - min)) + min;
 }
 
-const randomNum = getRandomNumberBetween(12, 15);
-console.log(randomNum);
+// const randomNum = getRandomNumberBetween(12, 15);
+// console.log(randomNum);
+
+const fruits = ["apple", "Banana", "Guava", "pineapple"];
+function shuffle(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let r = Math.floor(Math.random() * arr.length);
+    let temp = arr[i];
+    arr[i] = arr[r];
+    arr[r] = temp;
+  }
+  return arr;
+}
+
+console.log(shuffle(fruits));

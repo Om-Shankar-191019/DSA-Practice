@@ -26,8 +26,6 @@ public:
 };
 
 // constructor overloading --
-#include <iostream>
-using namespace std;
 
 class Rectangle
 {
@@ -77,29 +75,74 @@ public:
     }
 };
 
+// method override --
+
+class Animal
+{
+public:
+    // Virtual function to enable overriding
+    virtual void speak()
+    {
+        cout << "Animal speaks in its own way." << endl;
+    }
+};
+
+class Dog : public Animal
+{
+public:
+    // Override the speak method
+    void speak() override
+    {
+        cout << "Dog barks." << endl;
+    }
+};
+
+class Cat : public Animal
+{
+public:
+    // Override the speak method
+    void speak() override
+    {
+        cout << "Cat meows." << endl;
+    }
+};
+
 int main()
 {
 
-    Rectangle rect1;         // Calls default constructor
-    Rectangle square(5);     // Calls single-parameter constructor
-    Rectangle rect2(10, 20); // Calls two-parameter constructor
-    Rectangle rect3 = rect2; // Calls copy constructor
+    Animal *animal; // Base class pointer
 
-    cout << "Rectangle 1: ";
-    rect1.display();
-    cout << "Area: " << rect1.area() << endl;
+    Dog dog;
+    Cat cat;
 
-    cout << "\nSquare: ";
-    square.display();
-    cout << "Area: " << square.area() << endl;
+    // Pointing to Dog object
+    animal = &dog;
+    animal->speak(); // Calls Dog's speak method
 
-    cout << "\nRectangle 2: ";
-    rect2.display();
-    cout << "Area: " << rect2.area() << endl;
+    // Pointing to Cat object
+    animal = &cat;
+    animal->speak(); // Calls Cat's speak method
 
-    cout << "\nRectangle 3 (copy of Rectangle 2): ";
-    rect3.display();
-    cout << "Area: " << rect3.area() << endl;
+    // Rectangle rect1;         // Calls default constructor
+    // Rectangle square(5);     // Calls single-parameter constructor
+    // Rectangle rect2(10, 20); // Calls two-parameter constructor
+    // Rectangle rect3 = rect2; // Calls copy constructor
+
+    // cout << "Rectangle 1: ";
+    // rect1.display();
+    // cout << "Area: " << rect1.area() << endl;
+
+    // cout << "\nSquare: ";
+    // square.display();
+    // cout << "Area: " << square.area() << endl;
+
+    // cout << "\nRectangle 2: ";
+    // rect2.display();
+    // cout << "Area: " << rect2.area() << endl;
+
+    // cout << "\nRectangle 3 (copy of Rectangle 2): ";
+    // rect3.display();
+    // cout << "Area: " << rect3.area() << endl;
     // Addition a1;
 
     // cout << a1.add(2, 3) << endl;

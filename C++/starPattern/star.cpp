@@ -8,6 +8,7 @@ using namespace std;
 // *******
 void halfDimond(int r, int c)
 {
+    // if c not give, can calculate like this .. c = 2(r-1) + 1;
     int mid = (c + 1) / 2;
     for (int i = 1; i <= r; i++)
     {
@@ -111,9 +112,38 @@ void fullDimond(int r, int c)
     }
 }
 
+// *
+// **
+// ***
+// ****
+// ***
+// **
+// *
+void halfDiamondrightPointed(int r, int c)
+{
+    // if only c given , r = 2(c-1) + 1
+    int mid = (r + 1) / 2;
+    int k = 0;
+    for (int i = 1; i <= r; i++)
+    {
+        i <= mid ? k++ : k--;
+        for (int j = 1; j <= c; j++)
+        {
+            if (j <= k)
+            {
+                cout << "*";
+            }
+            else
+            {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
 int main()
 {
 
-    fullDimond(5, 5);
+    halfDiamondrightPointed(7, 4);
     return 0;
 }

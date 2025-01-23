@@ -141,9 +141,39 @@ void halfDiamondrightPointed(int r, int c)
         cout << endl;
     }
 }
+
+//    *
+//   **
+//  ***
+// ****
+//  ***
+//   **
+//    *
+void halfDiamondLeftPointed(int r, int c)
+{
+    // if only c given , r = 2(c-1) + 1
+    int mid = (r + 1) / 2;
+    int k = 0;
+    for (int i = 1; i <= r; i++)
+    {
+        i <= mid ? k++ : k--;
+        for (int j = 1; j <= c; j++)
+        {
+            if (j >= mid + 1 - k)
+            {
+                cout << "*";
+            }
+            else
+            {
+                cout << " ";
+            }
+        }
+        cout << endl;
+    }
+}
 int main()
 {
 
-    halfDiamondrightPointed(7, 4);
+    halfDiamondLeftPointed(7, 4);
     return 0;
 }

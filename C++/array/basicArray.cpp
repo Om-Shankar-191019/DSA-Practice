@@ -460,6 +460,30 @@ int maxSumCircularSubarray(int arr[], int n)
     return max(max_normalSubarray, max_CircularSubarray);
 }
 
+int naiveSlidingWindow(int arr[], int n, int k)
+{
+    int res = 0;
+
+    // Compute sum of first k elements
+    for (int i = 0; i < k; i++)
+    {
+        res += arr[i];
+    }
+
+    // Check all other windows of size k
+    for (int i = 1; i <= n - k; i++)
+    {
+        int sum = 0;
+        for (int j = i; j < i + k; j++)
+        {
+            sum += arr[j];
+        }
+        res = max(res, sum);
+    }
+
+    return res;
+}
+
 int main()
 {
     // int arr[] = {1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1};

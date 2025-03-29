@@ -423,17 +423,28 @@ int stockBuyAndSell(int arr[], int n)
     return profit;
 }
 
+int maxSumSubarray(int arr[], int n)
+{
+    int res = arr[0];
+    int prev = arr[0];
+    for (int i = 1; i < n; i++)
+    {
+        prev = max(prev + arr[i], arr[i]);
+        res = max(res, prev);
+    }
+    return res;
+}
+
 int main()
 {
-    int arr[] = {1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1};
+    // int arr[] = {1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1};
     // int arr[] = {false, true};
-    // int arr[] = {1, 5, 3, 8, 12};
 
+    int arr[] = {5, -2, 3, 4};
     int n = sizeof(arr) / sizeof(arr[0]);
+    int res = maxSumSubarray(arr, n);
+    cout << res;
 
-    minimumConsecutiveFlips2(arr, n);
-
-    // int result = stockBuyAndSell(arr, n);
     // cout << result << endl;
 
     // printArray(arr, n);

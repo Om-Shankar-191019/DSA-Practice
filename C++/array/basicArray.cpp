@@ -435,6 +435,18 @@ int maxSumSubarray(int arr[], int n)
     return res;
 }
 
+int minSumSubarray(int arr[], int n)
+{
+    int res = arr[0];
+    int prev = arr[0];
+    for (int i = 1; i < n; i++)
+    {
+        prev = min(prev + arr[i], arr[i]);
+        res = min(res, prev);
+    }
+    return res;
+}
+
 int main()
 {
     // int arr[] = {1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1};

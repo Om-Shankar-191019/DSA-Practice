@@ -447,6 +447,19 @@ int minSumSubarray(int arr[], int n)
     return res;
 }
 
+int maxSumCircularSubarray(int arr[], int n)
+{
+    int max_normalSubarray = maxSumSubarray(arr, n);
+    int totalSum = arr[0];
+    for (int i = 1; i < n; i++)
+    {
+        totalSum += arr[i];
+    }
+    int min_normalSubarray = minSumSubarray(arr, n);
+    int max_CircularSubarray = totalSum - min_normalSubarray;
+    return max(max_normalSubarray, max_CircularSubarray);
+}
+
 int main()
 {
     // int arr[] = {1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1};

@@ -507,6 +507,22 @@ int countPair(int arr[], int n, int givenSum)
     return count;
 }
 
+int countPairUsingSet(int arr[], int n, int givenSum)
+{
+    int count = 0;
+    unordered_set<int> st;
+
+    for (int i = 0; i < n; i++)
+    {
+        if (st.find(givenSum - arr[i]) != st.end())
+            count++;
+
+        // Insert current element **after checking**
+        st.insert(arr[i]);
+    }
+    return count;
+}
+
 int main()
 {
     // int arr[] = {1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1};

@@ -484,6 +484,29 @@ int naiveSlidingWindow(int arr[], int n, int k)
     return res;
 }
 
+// count pair with given sum.
+int countPair(int arr[], int n, int givenSum)
+{
+    sort(arr, arr + n); // Sorting the array
+    int i = 0, j = n - 1, count = 0;
+
+    while (i < j)
+    {
+        if (arr[i] + arr[j] == givenSum)
+        {
+            count++;
+            i++;
+            j--; // Move both pointers after counting the pair
+        }
+        else if (arr[i] + arr[j] > givenSum)
+            j--; // Decrease sum by moving right pointer
+        else
+            i++; // Increase sum by moving left pointer
+    }
+
+    return count;
+}
+
 int main()
 {
     // int arr[] = {1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1};

@@ -460,6 +460,22 @@ int maxSumCircularSubarray(int arr[], int n)
     return max(max_normalSubarray, max_CircularSubarray);
 }
 
+int maxCircularSubArraySumNaive(int arr[], int n)
+{
+    int res = arr[0];
+    for (int i = 0; i < n; i++)
+    {
+        int sum = 0;
+        for (int j = 0; j < n; j++)
+        {
+            int index = (i + j) % n;
+            sum += arr[index];
+            res = max(res, sum);
+        }
+    }
+    return res;
+}
+
 int naiveSlidingWindow(int arr[], int n, int k)
 {
     int res = 0;

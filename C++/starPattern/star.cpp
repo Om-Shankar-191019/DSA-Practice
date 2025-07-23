@@ -174,6 +174,6 @@ void halfDiamondLeftPointed(int r, int c)
 int main()
 {
 
-    halfDiamondLeftPointed(7, 4);
+    fullDimond(7, 7);
     return 0;
 }

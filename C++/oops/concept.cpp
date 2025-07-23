@@ -51,9 +51,9 @@ int main()
 {
     Mahindra xuv("Mahindra", "xuv300", 200, "petrol", "electric", "suv");
     Mahindra bolero("Mahindra", "bolero25", 130, "desiel", "fuel", "sedan");
-    Mahindra marazo("Mahindra", "marazzoLL34", 150, "diesel", "fuel", "hatchback");
+    Mahindra marazo("maruti", "mm3", 150, "diesel", "fuel", "hatchback");
     xuv.carBrandWithFuel();
-    bolero.carBrandWithFuel();
+    marazo.carBrandWithFuel();
     bolero.showDetails();
     marazo.showDetails();
 

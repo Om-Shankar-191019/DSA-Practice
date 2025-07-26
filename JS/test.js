@@ -1,20 +1,4 @@
-var employee1 = { firstName: "John", lastName: "Rodson" };
-var employee2 = { firstName: "Jimmy", lastName: "Baily" };
-
-function invite(greeting1, greeting2) {
-  console.log(
-    greeting1 + " " + this.firstName + " " + this.lastName + ", " + greeting2
-  );
-}
-
-const inviteArrow = (greeting1, greeting2) => {
-  console.log(
-    greeting1 + " " + this.firstName + " " + this.lastName + ", " + greeting2
-  );
-};
-
 // inviteArrow.call(employee1, "HELLO", "Stonish");
-// invite.call(employee1, "HELLO", "Stonish");
 let object = {
   k1: "value1",
   k2: "value2",
@@ -94,35 +78,10 @@ function pro() {
 
 // --------------------------------------------------
 
-let obj = new Object();
-(obj.name = "om "), (obj.age = 34);
+const arr = ["car", "bike", "honda"];
+console.log(arr);
 
-// console.log(obj);
+arr.push("sth");
+console.log(arr);
 
-let a = {};
-a.name = "om shankar";
-// console.log(a);
 
-let b = Object.create(null);
-b.name = "ravi shankar";
-
-// console.log(b);
-
-function Person(name, age) {
-  this.name = name;
-  this.age = age;
-}
-
-// console.log(Person("manu", 34));
-
-// class Person {
-//   constructor(name, age) {
-//     this.name = name;
-//     this.age = age;
-//   }
-// }
-fun();
-
-var fun = () => {
-  console.log("hi om");
-};
